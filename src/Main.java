@@ -5,7 +5,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// Setup repository and service (currently in-memory; easy to swap later)
-		FuscaRepository repo = new InMemoryFuscaRepository();
+		FuscaRepository repo = new FileFuscaRepository("db.json");
 		FuscaService service = new FuscaService(repo);
 
 		// Create some people (demonstrates polymorphism: Player vs Person)
