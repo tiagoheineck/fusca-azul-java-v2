@@ -29,6 +29,11 @@ public class Main {
 		service.seeFuscaAndPunch(f2.getId(), bob, alice);  // bob is Person -> non-blue, no points
 		service.seeFuscaAndPunch(f3.getId(), bob, alice);  // f3 is blue -> bob gets +1
 
+		bob.seenFuscas.add(f1); // bob saw f1, but it's not blue, so no points
+		bob.seenFuscas.add(f3); // bob saw f3, which is blue, so he can punch next time
+		bob.findSeenFuscaById(f1.getId()); // bob finds f1 in his seen list
+		bob.removeSeenFusca(f3); // bob removes f3 from his seen list
+		
 		System.out.println();
 		System.out.println("Scores after actions:");
 		System.out.println("  " + alice.getName() + " = " + alice.getScore());
